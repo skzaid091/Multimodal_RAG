@@ -989,7 +989,6 @@ def render_configurations(rag) -> None:
                         try:
                             rag.reset_knowledge_base()
                             st.cache_data.clear()
-                            st.success("✅ Knowledge base has been reset.")
                             refresh_rag()
                         except Exception as exc:
                             st.error(f"❌ {exc}")
@@ -1027,6 +1026,7 @@ def render_configurations(rag) -> None:
                     with st.spinner("Resetting…"):
                         try:
                             rag.reset_config()
+                            refresh_rag()
                             st.success("✅ Configuration reset.")
                         except Exception as exc:
                             st.error(f"❌ {exc}")
