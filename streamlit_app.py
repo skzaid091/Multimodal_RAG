@@ -721,6 +721,7 @@ def render_configurations(rag) -> None:
 
                         try:
                             rag.process_document(file_path)
+                            refresh_rag()
                         except Exception as exc:
                             errors.append((filename, str(exc)))
                         

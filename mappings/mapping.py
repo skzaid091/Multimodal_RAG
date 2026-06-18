@@ -236,20 +236,10 @@ class Mapping:
         Delete complete knowledge base.
         """
 
-        for folder in self.config["reset_knowledge_base_folders"]:
+        all_documents = self.get_documents()
 
-            if not os.path.exists(folder):
-                continue
-
-            for item in os.listdir(folder):
-
-                item_path = os.path.join(folder, item)
-
-                if os.path.isfile(item_path):
-                    os.remove(item_path)
-
-                elif os.path.isdir(item_path):
-                    shutil.rmtree(item_path)
+        for document in all_documents:
+            self.delete_document_data(document_name=document)
 
         return True, "Knowledge Base Reset Successfully. !!!"
 
