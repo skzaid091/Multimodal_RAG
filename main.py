@@ -207,7 +207,8 @@ def configuration_menu(rag):
 
 def main():
 
-    rag = MultimodalRAG()
+    GROQ_API_KEY = ""     # Ad your GROQ API KEY
+    rag = MultimodalRAG(GROQ_API_KEY=GROQ_API_KEY)
 
     while True:
 
